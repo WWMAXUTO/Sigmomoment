@@ -1,15 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Title</title>
-        <link rel="stylesheet" href="styles.css" />
-        <script src="script.js"></script>
-    </head>
-    <body>
-        <h1 class="title">Hello World</h1>
-        <div id="mainDiv">Hello Div</div>
-        <br />
-        <button onclick="buttonClicked()">Click me</button>
-    </body>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .yes {
+            background-color: green;
+            color: white;
+        }
+        .no {
+            background-color: red;
+            color: white;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <h1>Я гений?</h1>
+    <div class="container">
+        <button class="btn yes" onclick="checkAnswer()">Да</button>
+        <button class="btn no" onmouseover="moveButton()">Нет</button>
+    </div>
+    <p id="result"></p>
+
+    <script>
+        function checkAnswer() {
+            document.getElementById("result").textContent = "Правильно, вы прошли проверку!";
+        }
+
+        function moveButton() {
+            let button = document.querySelector(".no");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            button.style.position = "absolute";
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+    </script>
+</body>
 </html>
